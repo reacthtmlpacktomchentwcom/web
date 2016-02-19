@@ -1,0 +1,25 @@
+.FormSubmitter {
+  display: inline-block;
+}
+
+.form {
+  display: inline-block;
+}
+
+.submitBtn {
+  composes: buttonStyleResetter from "./Shared.css";
+  padding: 6px 16px;
+  border-radius: 4px;
+  color: #ffffff;
+  background-color: #0060c0;
+}
+
+.submitBtn:hover {
+  background-color: #0040c0;
+}
+
+.submitBtn[disabled] {
+  background-color: #2080c0;
+  cursor: not-allowed;
+}
+

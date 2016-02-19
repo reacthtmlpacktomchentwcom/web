@@ -1,0 +1,10 @@
+.Navbar {
+  composes: row center-xs center-sm from "flexboxgrid";
+  height: 60px;
+  padding: 15px 10px;
+}
+
+.FormSubmitter {
+  composes: col-xs-4 col-sm-2 from "flexboxgrid";
+
+}

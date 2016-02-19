@@ -1,0 +1,90 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <base data-reacthtmlpack-inject-props="server.head.base" data-reacthtmlpack-inject-method="replaceWith">
+    <title data-reacthtmlpack-inject-props="server.head.title" data-reacthtmlpack-inject-method="replaceWith"></title>
+    <meta  data-reacthtmlpack-inject-props="server.head.meta" data-reacthtmlpack-inject-method="replaceWith">
+
+    <link rel="stylesheet" data-reacthtmlpack-extract-text-from-module-name="./client.js">
+
+    <script data-reacthtmlpack-module-name="./server.js" data-reacthtmlpack-entry-target="node" data-reacthtmlpack-provide-props="server">
+      import {
+        default as React,
+      } from "react";
+
+      import {
+        default as ReactDOMServer,
+      } from "react-dom/server";
+
+      import {
+        Provider,
+      } from "react-redux";
+
+      import {
+        default as Helmet,
+      } from "react-helmet";
+
+      import {
+        configureStore,
+        RootComponent,
+      } from "../universal";
+
+      export default ({ location }, contentReady: (error: any, injectProps: any) => void) => {
+        const store = configureStore();
+        const innerHTML = ReactDOMServer.renderToString(
+          <Provider store={store}>
+            <RootComponent />
+          </Provider>
+        );
+        const serializedState = JSON.stringify(store.getState());
+        const serializedStateInnerHTML = `window.__INITIAL_STATE__ = ${ serializedState };`;
+
+        contentReady(null, {
+          innerHTML,
+          serializedStateInnerHTML,
+          head: Helmet.rewind(),
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div id="react-container" data-reacthtmlpack-inject-props="server.innerHTML">
+      <!-- The innerHTML of this node will be the arguments passed to contentReady() -->
+      <!-- with key "innerHTML" under provide-props="server" -->
+    </div>
+
+    <script data-reacthtmlpack-inject-props="server.serializedStateInnerHTML">
+      // The innerHTML of this node will be the arguments passed to contentReady()
+      // with key "serializedStateInnerHTML" under provide-props="server"
+    </script>
+
+    <script data-reacthtmlpack-module-name="./client.js" data-reacthtmlpack-entry-target="web">
+      import "normalize.css";
+
+      import {
+        default as React,
+      } from "react";
+
+      import {
+        default as ReactDOM,
+      } from "react-dom";
+
+      import {
+        Provider,
+      } from "react-redux";
+
+      import {
+        configureStore,
+        RootComponent,
+      } from "../universal";
+
+      ReactDOM.render((
+        <Provider store={configureStore(window.__INITIAL_STATE__)}>
+          <RootComponent />
+        </Provider>
+      ), document.getElementById(`react-container`));
+    </script>
+  </body>
+</html>

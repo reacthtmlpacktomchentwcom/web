@@ -1,0 +1,19 @@
+.Root {
+  composes: container-fluid from "flexboxgrid";
+  background-color: #c0e0f0;
+}
+
+.row {
+  composes: row from "flexboxgrid";
+}
+
+.item {
+  composes: col-xs-12 col-md-6 from "flexboxgrid";
+}
+
+.buildFrame {
+  width: 100%;
+  min-height: 500px;
+  border: 1px solid #f0f0f0;
+  background-color: #ffffff;
+}
