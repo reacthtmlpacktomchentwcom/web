@@ -12,4 +12,4 @@ RUN npm run build
 
 VOLUME ["/opt/workspace/public"]
 
-# CMD npm start
+CMD tail -f /dev/null
