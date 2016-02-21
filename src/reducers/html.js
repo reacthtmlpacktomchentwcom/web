@@ -7,7 +7,10 @@ import {
 } from "../constants/actions";
 
 const INITIAL_STATE = {
-  code: ``,
+  code: (
+`// Try pasting, click Submit and wait ~20s:
+// https://gist.github.com/tomchentw/44d614c371260dd1d0fd
+`),
   uuid: null,
   isSubmitBtnDisabled: true,
 };
