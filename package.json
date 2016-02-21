@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "brace": "^0.7.0",
+    "can-use-dom": "^0.1.0",
     "flexboxgrid": "^6.3.0",
     "normalize.css": "^3.0.3",
     "react": "^0.14.7",

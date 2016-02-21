@@ -7,8 +7,12 @@
   composes: row from "flexboxgrid";
 }
 
-.item {
+.htmlItem {
   composes: col-xs-12 col-md-6 from "flexboxgrid";
+}
+
+.assetItem {
+  composes: col-xs-12 col-md-4 from "flexboxgrid";
 }
 
 .buildFrame {

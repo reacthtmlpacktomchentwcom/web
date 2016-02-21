@@ -13,8 +13,8 @@ import {
 } from "react-redux";
 
 import {
-  default as AceEditor,
-} from "./ReactAce";
+  default as BraceEditor,
+} from "./BraceEditor";
 
 import {
   changeHTMLCode,
@@ -29,33 +29,16 @@ export class HTMLEditor extends Component {
     }),
   };
 
-  state = {
-    mode: null,
-    theme: null,
-  };
-
-  componentDidMount() {
-    const ace = require(`brace`);
-    require(`brace/mode/html`);
-    require(`brace/theme/tomorrow_night`);
-    this.setState({
-      mode: `html`,
-      theme: `tomorrow_night`,
-    });
-  }
-
   render() {
-    const { theme } = this.props;
-
     return (
       <div>
-        <AceEditor
+        <BraceEditor
           name="html-ace-editor"
           width={"auto"}
           height={"500px"}
           fontSize={17}
-          mode={this.state.mode}
-          theme={this.state.theme}
+          mode="html"
+          theme="tomorrow_night"
           showGutter={false}
           value={this.props.code}
           highlightActiveLine={false}
