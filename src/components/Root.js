@@ -51,6 +51,7 @@ export class Root extends Component {
     theme: PropTypes.shape({
       Root: PropTypes.string.isRequired,
       row: PropTypes.string.isRequired,
+      descriptionText: PropTypes.string.isRequired,
       htmlItem: PropTypes.string.isRequired,
       assetItem: PropTypes.string.isRequired,
       buildFrame: PropTypes.string.isRequired,
@@ -86,6 +87,16 @@ export class Root extends Component {
           title="Home"
         />
         <Navbar />
+        <div className={theme.row}>
+          <div className={theme.descriptionText}>
+            <p>
+              Copy the content below and paste it to the left block. Click "Submit" and wait ~20s:
+              <a target="_blank" href="https://github.com/tomchentw/reacthtmlpack/blob/v2.1.6/examples/AlertAutoDismissable/index.html">
+                https://github.com/tomchentw/reacthtmlpack/blob/v2.1.6/examples/AlertAutoDismissable/index.html
+              </a>
+            </p>
+          </div>
+        </div>
         <div className={theme.row}>
           <div className={theme.htmlItem}>
             <HTMLEditor />

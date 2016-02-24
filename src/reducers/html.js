@@ -7,10 +7,7 @@ import {
 } from "../constants/actions";
 
 const INITIAL_STATE = {
-  code: (
-`// Copy the contents and paste in here. Click "Submit" and wait ~20s:
-// https://github.com/tomchentw/reacthtmlpack/blob/v2.1.6/examples/AlertAutoDismissable/index.html
-`),
+  code: ``,
   uuid: null,
   isSubmitBtnDisabled: true,
 };
