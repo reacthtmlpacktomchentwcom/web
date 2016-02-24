@@ -8,8 +8,8 @@ import {
 
 const INITIAL_STATE = {
   code: (
-`// Try pasting, click Submit and wait ~20s:
-// https://gist.github.com/tomchentw/44d614c371260dd1d0fd
+`// Copy the contents and paste in here. Click "Submit" and wait ~20s:
+// https://github.com/tomchentw/reacthtmlpack/blob/v2.1.6/examples/AlertAutoDismissable/index.html
 `),
   uuid: null,
   isSubmitBtnDisabled: true,
